@@ -26,18 +26,74 @@ public class JFLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTituloLogin = new javax.swing.JLabel();
+        jLabelLogin = new javax.swing.JLabel();
+        jTextFieldLogin = new javax.swing.JTextField();
+        jLabelSenha = new javax.swing.JLabel();
+        jButtonEntrar = new javax.swing.JButton();
+        jTextFieldSenha = new javax.swing.JPasswordField();
+        jButtonRegistrar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabelTituloLogin.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelTituloLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTituloLogin.setText("Login");
+
+        jLabelLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelLogin.setText("Login");
+
+        jTextFieldLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabelSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelSenha.setText("Senha");
+
+        jButtonEntrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonEntrar.setText("Entrar");
+
+        jTextFieldSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jButtonRegistrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonRegistrar.setText("Registrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelTituloLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldLogin)
+                    .addComponent(jButtonEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldSenha)
+                    .addComponent(jButtonRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabelTituloLogin)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEntrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jButtonRegistrar)
+                .addGap(16, 16, 16))
         );
+
+        jLabelLogin.getAccessibleContext().setAccessibleName("jLabelLogin");
+        jTextFieldLogin.getAccessibleContext().setAccessibleName("jTFLogin");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -46,28 +102,7 @@ public class JFLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +113,12 @@ public class JFLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonEntrar;
+    private javax.swing.JButton jButtonRegistrar;
+    private javax.swing.JLabel jLabelLogin;
+    private javax.swing.JLabel jLabelSenha;
+    private javax.swing.JLabel jLabelTituloLogin;
+    private javax.swing.JTextField jTextFieldLogin;
+    private javax.swing.JPasswordField jTextFieldSenha;
     // End of variables declaration//GEN-END:variables
 }
