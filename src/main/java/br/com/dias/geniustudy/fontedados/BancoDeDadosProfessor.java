@@ -1,6 +1,6 @@
 package br.com.dias.geniustudy.fontedados;
 
-import br.com.dias.geniustudy.modelo.Aluno;
+import br.com.dias.geniustudy.modelo.Professor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,17 +8,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class BancoDeDadosAluno {
+public class BancoDeDadosProfessor {
 
     private String nomeDiretorio = "banco";
-    private String nomeArquivo = "alunos.txt";
+    private String nomeArquivo = "professores.txt";
 
     File diretorio = new File(nomeDiretorio);
     File arquivo = new File(diretorio, nomeArquivo);
 
     private StringBuffer memoria = new StringBuffer();
 
-    public BancoDeDadosAluno() {
+    public BancoDeDadosProfessor() {
         criaPastaCasoNaoExista();
         iniciaMemoria();
     }
@@ -59,8 +59,8 @@ public class BancoDeDadosAluno {
         }
     }
 
-    public void insere(Aluno aluno) {
-        memoria.append(aluno.formatoBancoDeDados());
+    public void insere(Professor professor) {
+        memoria.append(professor.formatoBancoDeDados());
         gravar();
     }
 

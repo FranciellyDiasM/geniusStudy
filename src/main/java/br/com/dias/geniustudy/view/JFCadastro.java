@@ -5,7 +5,9 @@
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosAluno;
+import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
 import br.com.dias.geniustudy.modelo.Aluno;
+import br.com.dias.geniustudy.modelo.Professor;
 
 /**
  *
@@ -144,12 +146,13 @@ public class JFCadastro extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         String tipoCadastroSelecionado = jComboBoxTipoCadastro.getSelectedItem().toString();
-        
-        if(tipoCadastroSelecionado.equals("Aluno")) {
+
+        if (tipoCadastroSelecionado.equals("Aluno")) {
             cadastrarAluno();
             navegarTelaAluno();
-        } else if(tipoCadastroSelecionado.equals("Professor")){
-            
+        } else if (tipoCadastroSelecionado.equals("Professor")) {
+            cadastrarProfessor();
+            navegarTelaProfessor();
         }
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
@@ -168,17 +171,32 @@ public class JFCadastro extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cadastrarAluno() {
-       String nome = jTextFieldNome.getText();
-       String email = jTextFieldEmail.getText();
-       String senha = String.valueOf(jTextFieldSenha.getPassword());
-       
+        String nome = jTextFieldNome.getText();
+        String email = jTextFieldEmail.getText();
+        String senha = String.valueOf(jTextFieldSenha.getPassword());
+
         Aluno aluno = new Aluno(nome, email, senha);
-        
+
         BancoDeDadosAluno bdAluno = new BancoDeDadosAluno();
         bdAluno.insere(aluno);
     }
 
     private void navegarTelaAluno() {
-     
+
+    }
+
+    private void cadastrarProfessor() {
+        String nome = jTextFieldNome.getText();
+        String email = jTextFieldEmail.getText();
+        
+        String senha = String.valueOf(jTextFieldSenha.getPassword());
+
+        Professor professor = new Professor(nome, email, senha);
+
+        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
+        bdProfessor.insere(professor);
+    }
+
+    private void navegarTelaProfessor() {
     }
 }
