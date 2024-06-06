@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabelTituloLogin" max="32767" attributes="0"/>
                   <Component id="jLabelLogin" max="32767" attributes="0"/>
@@ -34,7 +34,7 @@
                   <Component id="jTextFieldSenha" max="32767" attributes="0"/>
                   <Component id="jButtonRegistrar" pref="159" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
