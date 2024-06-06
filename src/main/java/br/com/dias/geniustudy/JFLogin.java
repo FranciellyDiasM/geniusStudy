@@ -4,6 +4,10 @@
  */
 package br.com.dias.geniustudy;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author frand
@@ -50,11 +54,21 @@ public class JFLogin extends javax.swing.JFrame {
 
         jButtonEntrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonEntrar.setText("Entrar");
+        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntrarActionPerformed(evt);
+            }
+        });
 
         jTextFieldSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jButtonRegistrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +110,27 @@ public class JFLogin extends javax.swing.JFrame {
         jTextFieldLogin.getAccessibleContext().setAccessibleName("jTFLogin");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
+
+    }//GEN-LAST:event_jButtonEntrarActionPerformed
+
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        JFCadastro jFCadastro = new JFCadastro();
+
+        jFCadastro.setVisible(true);
+        setVisible(false);
+
+        // https://stackoverflow.com/questions/10468149/jframe-on-close-operation
+        jFCadastro.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
