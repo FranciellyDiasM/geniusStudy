@@ -12,6 +12,6 @@ public class Aluno extends Usuario{
     }
     
     public String formatoBancoDeDados() {
-        return String.format("%s|%s|%s\n", getNome(), getEmail(), getSenha());
+        return String.format("%s|%s|%s", getNome(), getEmail(), getSenha());
     }
 }

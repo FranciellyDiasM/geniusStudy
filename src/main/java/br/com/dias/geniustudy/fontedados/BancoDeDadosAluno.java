@@ -4,75 +4,105 @@ import br.com.dias.geniustudy.modelo.Aluno;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BancoDeDadosAluno {
 
-    private String nomeDiretorio = "banco";
-    private String nomeArquivo = "alunos.txt";
+    private static final String NOME_PASTA = "banco";
+    private static final String NOME_ARQUIVO = "alunos.txt";
 
-    File diretorio = new File(nomeDiretorio);
-    File arquivo = new File(diretorio, nomeArquivo);
-
-    private StringBuffer memoria = new StringBuffer();
+    private static final File PASTA = new File(NOME_PASTA);
+    private static final File ARQUIVO = new File(PASTA, NOME_ARQUIVO);
 
     public BancoDeDadosAluno() {
-        criaPastaCasoNaoExista();
-        iniciaMemoria();
+        criaArquivoCasoNaoExista();
     }
 
-    private void criaPastaCasoNaoExista() {
-
-        if (!diretorio.exists()) {
-            diretorio.mkdirs();
+    private void criaArquivoCasoNaoExista() {
+        if (!PASTA.exists()) {
+            PASTA.mkdirs();
         }
 
-        if (!arquivo.exists()) {
+        if (!ARQUIVO.exists()) {
             try {
-                arquivo.createNewFile();
-            } catch (Exception e) {
-                System.out.println("Erro ao criar o arquivo .txt");
+                ARQUIVO.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
 
-    private void iniciaMemoria() {
+    public void adicionarAluno(Aluno aluno) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(arquivo));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO, true));
+            writer.write(aluno.formatoBancoDeDados());
+            writer.newLine();
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    public ArrayList<Aluno> getAlunos() {
+        ArrayList<Aluno> alunos = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(NOME_ARQUIVO));
             String linha;
-            memoria.delete(0, memoria.length());
-            do {
-                linha = reader.readLine();
-                if (linha != null) {
-                    memoria.append(linha + "\n");
-                }
-            } while (linha != null);
+            while ((linha = reader.readLine()) != null) {
+                alunos.add(stringToAluno(linha));
+            }
             reader.close();
-        } catch (FileNotFoundException erro) {
-            System.out.println("\nArquivo nao encontrado");
-        } catch (Exception e) {
-            System.out.println("\nErro de Leitura!");
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return alunos;
     }
 
-    public void insere(Aluno aluno) {
-        memoria.append(aluno.formatoBancoDeDados());
-        gravar();
-    }
-
-    private void gravar() {
+    public void atualizarAluno(String email, Aluno alunoAtualizado) {
         try {
-            BufferedWriter escrita = new BufferedWriter(new FileWriter(arquivo));
-            escrita.write(memoria.toString());
-            escrita.flush();
-            escrita.close();
-        } catch (Exception e) {
-            System.out.println("\nErro de gravacao!");
+            ArrayList<Aluno> alunos = getAlunos();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO));
+            for (Aluno aluno : alunos) {
+                if (aluno.getEmail().equals(email)) {
+                    writer.write(aluno.formatoBancoDeDados());
+                } else {
+                    writer.write(aluno.formatoBancoDeDados());
+                }
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    public void deletarAluno(String email) {
+        try {
+            ArrayList<Aluno> alunos = getAlunos();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO));
+            for (Aluno aluno : alunos) {
+                if (!aluno.getEmail().equals(email)) {
+                    writer.write(aluno.formatoBancoDeDados());
+                    writer.newLine();
+                }
+            }
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private Aluno stringToAluno(String linha) {
+        String[] partes = linha.split("\\|");
+        Aluno aluno = new Aluno(partes[0], partes[1], partes[2]);
+        
+        return aluno;
+    }
 }

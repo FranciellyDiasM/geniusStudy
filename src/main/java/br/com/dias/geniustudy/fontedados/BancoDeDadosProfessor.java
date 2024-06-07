@@ -1,78 +1,112 @@
 package br.com.dias.geniustudy.fontedados;
 
+import br.com.dias.geniustudy.modelo.Curso;
 import br.com.dias.geniustudy.modelo.Professor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BancoDeDadosProfessor {
 
-    private String nomeDiretorio = "banco";
+    private String nomePasta = "banco";
     private String nomeArquivo = "professores.txt";
 
-    File diretorio = new File(nomeDiretorio);
-    File arquivo = new File(diretorio, nomeArquivo);
-
-    private StringBuffer memoria = new StringBuffer();
+    private File pasta = new File(nomePasta);
+    private File arquivo = new File(pasta, nomeArquivo);
 
     public BancoDeDadosProfessor() {
-        criaPastaCasoNaoExista();
-        iniciaMemoria();
+        criaArquivoCasoNaoExista();
     }
 
-    private void criaPastaCasoNaoExista() {
-
-        if (!diretorio.exists()) {
-            diretorio.mkdirs();
+    private void criaArquivoCasoNaoExista() {
+        if (!pasta.exists()) {
+            pasta.mkdirs();
         }
 
         if (!arquivo.exists()) {
             try {
                 arquivo.createNewFile();
-            } catch (Exception e) {
-                System.out.println("Erro ao criar o arquivo .txt");
+            } catch (IOException ex) {
+                Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
 
-    private void iniciaMemoria() {
+    public void adicionarProfessor(Professor professor) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(arquivo));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true));
+            writer.write(professor.formatoBancoDeDados());
+            writer.newLine();
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    public ArrayList<Professor> getProfessores() {
+        ArrayList<Professor> professores = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo));
             String linha;
-            memoria.delete(0, memoria.length());
-            do {
-                linha = reader.readLine();
-                if (linha != null) {
-                    memoria.append(linha + "\n");
-                }
-            } while (linha != null);
+            while ((linha = reader.readLine()) != null) {
+                professores.add(stringToProfessor(linha));
+            }
             reader.close();
-        } catch (FileNotFoundException erro) {
-            System.out.println("\nArquivo nao encontrado");
-        } catch (Exception e) {
-            System.out.println("\nErro de Leitura!");
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return professores;
     }
 
-    public void insere(Professor professor) {
-        memoria.append(professor.formatoBancoDeDados());
-        gravar();
-    }
-
-    private void gravar() {
+    public void atualizarProfessor(String email, Professor professorAtualizado) {
         try {
-            BufferedWriter escrita = new BufferedWriter(new FileWriter(arquivo));
-            escrita.write(memoria.toString());
-            escrita.flush();
-            escrita.close();
-        } catch (Exception e) {
-            System.out.println("\nErro de gravacao!");
+            ArrayList<Professor> professores = getProfessores();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
+            for (Professor professor : professores) {
+                if (professor.getEmail().equals(email)) {
+                    writer.write(professor.formatoBancoDeDados());
+                } else {
+                    writer.write(professor.formatoBancoDeDados());
+                }
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    public void deletarProfessor(String email) {
+        try {
+            ArrayList<Professor> professores = getProfessores();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
+            for (Professor professor : professores) {
+                if (!professor.getEmail().equals(email)) {
+                    writer.write(professor.formatoBancoDeDados());
+                    writer.newLine();
+                }
+            }
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private Professor stringToProfessor(String linha) {
+        String[] partes = linha.split("\\|");
+        Professor professor = new Professor(partes[0], partes[1], partes[2]);
+        for (int i = 3; i < partes.length; i += 3) {
+            Curso curso = new Curso(partes[i], Double.parseDouble(partes[i + 1]), partes[i + 2]);
+            professor.adicionarCurso(curso);
+        }
+        return professor;
+    }
 }

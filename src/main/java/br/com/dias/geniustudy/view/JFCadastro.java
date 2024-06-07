@@ -178,7 +178,7 @@ public class JFCadastro extends javax.swing.JFrame {
         Aluno aluno = new Aluno(nome, email, senha);
 
         BancoDeDadosAluno bdAluno = new BancoDeDadosAluno();
-        bdAluno.insere(aluno);
+        bdAluno.adicionarAluno(aluno);
     }
 
     private void navegarTelaAluno() {
@@ -194,7 +194,7 @@ public class JFCadastro extends javax.swing.JFrame {
         Professor professor = new Professor(nome, email, senha);
 
         BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
-        bdProfessor.insere(professor);
+        bdProfessor.adicionarProfessor(professor);
     }
 
     private void navegarTelaProfessor() {
