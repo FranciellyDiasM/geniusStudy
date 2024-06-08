@@ -65,13 +65,15 @@ public class BancoDeDadosProfessor {
         return professores;
     }
 
-    public void atualizarProfessor(String email, Professor professorAtualizado) {
+    public void atualizarProfessor(Professor professorAtualizado) {
+        String email = professorAtualizado.getEmail();
+        
         try {
             ArrayList<Professor> professores = getProfessores();
             BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
             for (Professor professor : professores) {
                 if (professor.getEmail().equals(email)) {
-                    writer.write(professor.formatoBancoDeDados());
+                    writer.write(professorAtualizado.formatoBancoDeDados());
                 } else {
                     writer.write(professor.formatoBancoDeDados());
                 }
@@ -108,5 +110,18 @@ public class BancoDeDadosProfessor {
             professor.adicionarCurso(curso);
         }
         return professor;
+    }
+
+    public Professor pesquisar(String email, String senha) {
+        ArrayList<Professor> professores = getProfessores();
+       
+       for(Professor professor : professores) {
+           if(professor.getEmail().equalsIgnoreCase(email) && professor.getSenha().equals(senha)) {
+               return professor;
+           }
+       } 
+       
+       return null;    
+    
     }
 }

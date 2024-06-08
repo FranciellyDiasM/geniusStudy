@@ -5,7 +5,9 @@
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosAluno;
+import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
 import br.com.dias.geniustudy.modelo.Aluno;
+import br.com.dias.geniustudy.modelo.Professor;
 import javax.swing.JOptionPane;
 
 /**
@@ -125,12 +127,18 @@ public class JFLogin extends javax.swing.JFrame {
         
         if(aluno != null) {
             JOptionPane.showMessageDialog(this, aluno.toString());
+            return;
+        }
+        
+        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
+        
+        Professor professor = bdProfessor.pesquisar(email, senha);
+        
+        if(professor != null) {
+            navegaTelaProfessor(professor);
         } else {
             JOptionPane.showMessageDialog(this, "Dados inválidos!");
         }
-        
-        
-        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
@@ -169,4 +177,10 @@ public class JFLogin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldLogin;
     private javax.swing.JPasswordField jTextFieldSenha;
     // End of variables declaration//GEN-END:variables
+
+    private void navegaTelaProfessor(Professor professor) {
+        JFProfessor jFProfessor = new JFProfessor(professor);
+        jFProfessor.setVisible(true);
+        setVisible(false);
+    }
 }

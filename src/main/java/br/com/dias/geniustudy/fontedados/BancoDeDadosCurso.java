@@ -46,7 +46,7 @@ public class BancoDeDadosCurso {
                     }
                 }
                 professor.setCursos(cursosAtualizados);
-                bdProfessor.atualizarProfessor(emailProfessor, professor);
+                bdProfessor.atualizarProfessor(professor);
                 break;
             }
         }
@@ -66,7 +66,7 @@ public class BancoDeDadosCurso {
                     }
                 }
                 professor.setCursos(cursosAtualizados);
-                bdProfessor.atualizarProfessor(emailProfessor, professor);
+                bdProfessor.atualizarProfessor(professor);
                 break;
             }
         }

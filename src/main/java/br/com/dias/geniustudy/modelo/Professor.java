@@ -30,8 +30,6 @@ public class Professor extends Usuario {
     public void setCursos(ArrayList<Curso> cursos) {
         this.cursos = cursos;
     }
-    
-    
 
     public void adicionarCurso(Curso curso) {
         cursos.add(curso);
