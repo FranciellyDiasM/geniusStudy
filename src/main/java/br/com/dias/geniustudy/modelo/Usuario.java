@@ -5,7 +5,7 @@ package br.com.dias.geniustudy.modelo;
  *
  * @author frand
  */
-public abstract class Usuario {
+public class Usuario {
     private String nome;
     private String email;
     private String senha;

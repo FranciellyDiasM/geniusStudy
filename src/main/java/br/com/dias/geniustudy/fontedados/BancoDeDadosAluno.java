@@ -13,24 +13,24 @@ import java.util.logging.Logger;
 
 public class BancoDeDadosAluno {
 
-    private static final String NOME_PASTA = "banco";
-    private static final String NOME_ARQUIVO = "alunos.txt";
+    private String nomePasta = "banco";
+    private String nomeArquivo = "alunos.txt";
 
-    private static final File PASTA = new File(NOME_PASTA);
-    private static final File ARQUIVO = new File(PASTA, NOME_ARQUIVO);
+    private File pasta = new File(nomePasta);
+    private File arquivo = new File(pasta, nomeArquivo);
 
     public BancoDeDadosAluno() {
         criaArquivoCasoNaoExista();
     }
 
     private void criaArquivoCasoNaoExista() {
-        if (!PASTA.exists()) {
-            PASTA.mkdirs();
+        if (!pasta.exists()) {
+            pasta.mkdirs();
         }
 
-        if (!ARQUIVO.exists()) {
+        if (!arquivo.exists()) {
             try {
-                ARQUIVO.createNewFile();
+                arquivo.createNewFile();
             } catch (IOException ex) {
                 Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -39,7 +39,7 @@ public class BancoDeDadosAluno {
 
     public void adicionarAluno(Aluno aluno) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true));
             writer.write(aluno.formatoBancoDeDados());
             writer.newLine();
             writer.close();
@@ -51,7 +51,7 @@ public class BancoDeDadosAluno {
     public ArrayList<Aluno> getAlunos() {
         ArrayList<Aluno> alunos = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(NOME_ARQUIVO));
+            BufferedReader reader = new BufferedReader(new FileReader(arquivo));
             String linha;
             while ((linha = reader.readLine()) != null) {
                 alunos.add(stringToAluno(linha));
@@ -67,7 +67,7 @@ public class BancoDeDadosAluno {
     public void atualizarAluno(String email, Aluno alunoAtualizado) {
         try {
             ArrayList<Aluno> alunos = getAlunos();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
             for (Aluno aluno : alunos) {
                 if (aluno.getEmail().equals(email)) {
                     writer.write(aluno.formatoBancoDeDados());
@@ -85,7 +85,7 @@ public class BancoDeDadosAluno {
     public void deletarAluno(String email) {
         try {
             ArrayList<Aluno> alunos = getAlunos();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
             for (Aluno aluno : alunos) {
                 if (!aluno.getEmail().equals(email)) {
                     writer.write(aluno.formatoBancoDeDados());
@@ -104,5 +104,17 @@ public class BancoDeDadosAluno {
         Aluno aluno = new Aluno(partes[0], partes[1], partes[2]);
         
         return aluno;
+    }
+
+    public Aluno pesquisar(String email, String senha) {
+       ArrayList<Aluno> alunos = getAlunos();
+       
+       for(Aluno aluno : alunos) {
+           if(aluno.getEmail().equalsIgnoreCase(email) && aluno.getSenha().equals(senha)) {
+               return aluno;
+           }
+       } 
+       
+       return null;
     }
 }

@@ -8,6 +8,9 @@ import br.com.dias.geniustudy.fontedados.BancoDeDadosAluno;
 import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
 import br.com.dias.geniustudy.modelo.Aluno;
 import br.com.dias.geniustudy.modelo.Professor;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,13 +18,21 @@ import br.com.dias.geniustudy.modelo.Professor;
  */
 public class JFCadastro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JFCadastro
-     */
-    public JFCadastro() {
+    private JFLogin jFLoginOrigem;
+    
+    public JFCadastro(JFLogin origem) {
         initComponents();
+        this.jFLoginOrigem = origem;
+        
+        // https://stackoverflow.com/questions/10468149/jframe-on-close-operation
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                jFLoginOrigem.setVisible(true);
+            }
+        });
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,6 +157,15 @@ public class JFCadastro extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         String tipoCadastroSelecionado = jComboBoxTipoCadastro.getSelectedItem().toString();
+        
+        String nome = jTextFieldNome.getText();
+        String email = jTextFieldEmail.getText();
+        String senha = String.valueOf(jTextFieldSenha.getPassword());
+        
+        if(nome.isBlank() || email.isBlank() || senha.isBlank()) {
+            JOptionPane.showMessageDialog (this, "Preencha todos os campos");
+            return;
+        }
 
         if (tipoCadastroSelecionado.equals("Aluno")) {
             cadastrarAluno();
@@ -154,6 +174,8 @@ public class JFCadastro extends javax.swing.JFrame {
             cadastrarProfessor();
             navegarTelaProfessor();
         }
+        
+        retornaUsuario();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
 
@@ -198,5 +220,14 @@ public class JFCadastro extends javax.swing.JFrame {
     }
 
     private void navegarTelaProfessor() {
+    }
+
+    private void retornaUsuario() {
+        String email = jTextFieldEmail.getText();
+        String senha = String.valueOf(jTextFieldSenha.getPassword());
+        
+        jFLoginOrigem.preencher(email, senha);
+        
+        this.dispose();
     }
 }

@@ -52,7 +52,7 @@ public class BancoDeDadosProfessor {
     public ArrayList<Professor> getProfessores() {
         ArrayList<Professor> professores = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo));
+            BufferedReader reader = new BufferedReader(new FileReader(arquivo));
             String linha;
             while ((linha = reader.readLine()) != null) {
                 professores.add(stringToProfessor(linha));

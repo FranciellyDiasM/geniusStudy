@@ -4,8 +4,8 @@
  */
 package br.com.dias.geniustudy.view;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import br.com.dias.geniustudy.fontedados.BancoDeDadosAluno;
+import br.com.dias.geniustudy.modelo.Aluno;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,9 +14,6 @@ import javax.swing.JOptionPane;
  */
 public class JFLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JFLogin
-     */
     public JFLogin() {
         initComponents();
     }
@@ -114,22 +111,33 @@ public class JFLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-
+        String email = jTextFieldLogin.getText();
+        String senha = String.valueOf(jTextFieldSenha.getPassword());
+        
+        if(email.isBlank() || senha.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Você precisa preencher E-mail e Senha");
+            return;
+        }
+        
+        BancoDeDadosAluno bdAluno = new BancoDeDadosAluno();
+        
+        Aluno aluno = bdAluno.pesquisar(email, senha);
+        
+        if(aluno != null) {
+            JOptionPane.showMessageDialog(this, aluno.toString());
+        } else {
+            JOptionPane.showMessageDialog(this, "Dados inválidos!");
+        }
+        
+        
+        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        JFCadastro jFCadastro = new JFCadastro();
+        JFCadastro jFCadastro = new JFCadastro(this);
 
         jFCadastro.setVisible(true);
         setVisible(false);
-
-        // https://stackoverflow.com/questions/10468149/jframe-on-close-operation
-        jFCadastro.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                setVisible(true);
-            }
-        });
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     /**
@@ -142,8 +150,14 @@ public class JFLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFLogin().setVisible(true);
+
             }
         });
+    }
+    
+    public void preencher(String email, String senha){
+        jTextFieldLogin.setText(email);
+        jTextFieldSenha.setText(senha);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
