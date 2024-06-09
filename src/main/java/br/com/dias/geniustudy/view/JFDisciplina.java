@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
@@ -9,16 +5,15 @@ import br.com.dias.geniustudy.modelo.Curso;
 import br.com.dias.geniustudy.modelo.Professor;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author frand
- */
 public class JFDisciplina extends javax.swing.JFrame {
 
     private Professor professor;
     private JFProfessor telaProfessor;
+    BancoDeDadosProfessor bdProfessor;
 
     public JFDisciplina(JFProfessor telaProfessor, Professor professor) {
+        bdProfessor = new BancoDeDadosProfessor();
+                
         initComponents();
         this.professor = professor;
         this.telaProfessor = telaProfessor;
@@ -129,8 +124,6 @@ public class JFDisciplina extends javax.swing.JFrame {
 
             Curso curso = new Curso(nome, valorHora, horario);
             professor.adicionarCurso(curso);
-            
-            BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
             
             bdProfessor.atualizarProfessor(professor);
             telaProfessor.exibirCurso(curso);
