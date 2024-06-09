@@ -126,7 +126,7 @@ public class JFLogin extends javax.swing.JFrame {
         Aluno aluno = bdAluno.pesquisar(email, senha);
         
         if(aluno != null) {
-            JOptionPane.showMessageDialog(this, aluno.toString());
+            navegaTelaAluno(aluno);
             return;
         }
         
@@ -181,6 +181,12 @@ public class JFLogin extends javax.swing.JFrame {
     private void navegaTelaProfessor(Professor professor) {
         JFProfessor jFProfessor = new JFProfessor(professor);
         jFProfessor.setVisible(true);
+        setVisible(false);
+    }
+
+    private void navegaTelaAluno(Aluno aluno) {
+        JFAluno jFAluno = new JFAluno(aluno);
+        jFAluno.setVisible(true);
         setVisible(false);
     }
 }

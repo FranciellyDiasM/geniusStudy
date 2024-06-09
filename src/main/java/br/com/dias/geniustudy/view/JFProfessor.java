@@ -86,15 +86,12 @@ public class JFProfessor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonExcluir)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonAdicionar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAdicionar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -154,8 +151,7 @@ public class JFProfessor extends javax.swing.JFrame {
 
     void exibirCurso(Curso curso) {
         DefaultTableModel model = (DefaultTableModel) jTableDisciplinas.getModel();
-        
-        
+
         Object[] linha = new Object[]{curso.getNome(), curso.getHorario(), curso.getValor()};
         model.addRow(linha);
     }

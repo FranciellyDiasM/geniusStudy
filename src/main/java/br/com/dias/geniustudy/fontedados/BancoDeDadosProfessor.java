@@ -67,7 +67,7 @@ public class BancoDeDadosProfessor {
 
     public void atualizarProfessor(Professor professorAtualizado) {
         String email = professorAtualizado.getEmail();
-        
+
         try {
             ArrayList<Professor> professores = getProfessores();
             BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
@@ -114,14 +114,46 @@ public class BancoDeDadosProfessor {
 
     public Professor pesquisar(String email, String senha) {
         ArrayList<Professor> professores = getProfessores();
-       
-       for(Professor professor : professores) {
-           if(professor.getEmail().equalsIgnoreCase(email) && professor.getSenha().equals(senha)) {
-               return professor;
-           }
-       } 
-       
-       return null;    
-    
+
+        for (Professor professor : professores) {
+            if (professor.getEmail().equalsIgnoreCase(email) && professor.getSenha().equals(senha)) {
+                return professor;
+            }
+        }
+
+        return null;
+
+    }
+
+    public ArrayList<Professor> buscarCursos(String valorBusca) {
+        ArrayList<Professor> professores = getProfessores();
+
+        for (int i = professores.size() - 1; i >= 0; i--) {
+
+            Professor professor = professores.get(i);
+            ArrayList<Curso> cursos = professor.getCursos();
+
+            for (int j = cursos.size() - 1; j >= 0; j--) {
+                Curso curso = cursos.get(j);
+
+                if (!containsIgnoreCase(curso.getNome(), valorBusca)) {
+                    cursos.remove(j);
+                }
+            }
+
+            if (cursos.isEmpty()) {
+                professores.remove(i);
+            }
+        }
+
+        return professores;
+    }
+
+    public static boolean containsIgnoreCase(String str, String busca) {
+        if (str == null || busca == null) {
+            return false;
+        }
+
+        return str.toLowerCase().contains(busca.toLowerCase());
     }
 }
