@@ -2,4 +2,4 @@ fran|fran@|123|Java|100.0|08:00|Python|150.0|08:30|Matematica|200.0|09:00
 jose|jose@|123|Portugues|100.0|10:00|Dancinha Tiktok|400.0|19:30
 joao|joao@|123|Culinaria|50.0|11:00|Sushi|200.0|20:00
 tutor|tutor@|123|Banco de Dados|150.0|9:00|BI|200.0|10:00
-professor|professor@|123|LPOO|100.0|08:00|LP1|150.0|08:30|LP2|200.0|09:00
+professor|professor@|123|LPOO|100.0|08:00|LP1|150.0|08:30|LP2|300.0|09:30

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
@@ -11,15 +7,14 @@ import br.com.dias.geniustudy.modelo.Professor;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author frand
- */
 public class JFAluno extends javax.swing.JFrame {
 
     private Aluno aluno;
+    BancoDeDadosProfessor bdProfessor;
 
     public JFAluno(Aluno aluno) {
+        bdProfessor = new BancoDeDadosProfessor();
+        
         this.aluno = aluno;
         initComponents();
         setupAluno();
@@ -119,12 +114,11 @@ public class JFAluno extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableDisciplinas.getModel();
         model.setRowCount(0);
 
-        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
         ArrayList<Professor> professores = bdProfessor.buscarCursos(valorBusca);
 
         for (Professor professor : professores) {
             for (Curso curso : professor.getCursos()) {
-                exibirCurso(curso, professor);
+                montarLinhaTabela(curso, professor);
             }
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
@@ -142,23 +136,26 @@ public class JFAluno extends javax.swing.JFrame {
     private void setupAluno() {
         jLabelNomeAluno.setText(aluno.getNome());
 
-        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
         ArrayList<Professor> professores = bdProfessor.getProfessores();
-
-        ArrayList<Curso> cursos = new ArrayList<Curso>();
 
         for (Professor professor : professores) {
             for (Curso curso : professor.getCursos()) {
-                exibirCurso(curso, professor);
+                montarLinhaTabela(curso, professor);
             }
         }
 
     }
 
-    private void exibirCurso(Curso curso, Professor professor) {
+    private void montarLinhaTabela(Curso curso, Professor professor) {
         DefaultTableModel model = (DefaultTableModel) jTableDisciplinas.getModel();
 
-        Object[] linha = new Object[]{curso.getNome(), curso.getHorario(), curso.getValor(), professor.getNome(), professor.getEmail()};
+        String coluna1 = curso.getNome();
+        String coluna2 = curso.getHorario();
+        double coluna3 = curso.getValor();
+        String coluna4 = professor.getNome();
+        String coluna5 = professor.getEmail();
+        
+        Object[] linha = new Object[]{coluna1, coluna2, coluna3, coluna4, coluna5};
         model.addRow(linha);
     }
 }

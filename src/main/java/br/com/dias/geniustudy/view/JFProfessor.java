@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
@@ -10,17 +6,16 @@ import br.com.dias.geniustudy.modelo.Professor;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author frand
- */
 public class JFProfessor extends javax.swing.JFrame {
 
     
+    BancoDeDadosProfessor bdProfessor;
     private Professor professor;
     
     public JFProfessor(Professor professor) {
+        bdProfessor = new BancoDeDadosProfessor();
         this.professor = professor;
+        
         initComponents();
         setupProfessor();
     }
@@ -125,7 +120,6 @@ public class JFProfessor extends javax.swing.JFrame {
         model.removeRow(linha);
         professor.getCursos().remove(linha);
         
-        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
         bdProfessor.atualizarProfessor(professor);
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 

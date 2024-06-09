@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosAluno;
@@ -12,15 +8,16 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author frand
- */
 public class JFCadastro extends javax.swing.JFrame {
 
     private JFLogin jFLoginOrigem;
+    BancoDeDadosAluno bdAluno;
+    BancoDeDadosProfessor bdProfessor;
     
     public JFCadastro(JFLogin origem) {
+        bdAluno = new BancoDeDadosAluno();
+        bdProfessor = new BancoDeDadosProfessor();
+        
         initComponents();
         this.jFLoginOrigem = origem;
         
@@ -169,10 +166,8 @@ public class JFCadastro extends javax.swing.JFrame {
 
         if (tipoCadastroSelecionado.equals("Aluno")) {
             cadastrarAluno();
-            navegarTelaAluno();
         } else if (tipoCadastroSelecionado.equals("Professor")) {
             cadastrarProfessor();
-            navegarTelaProfessor();
         }
         
         retornaUsuario();
@@ -198,13 +193,8 @@ public class JFCadastro extends javax.swing.JFrame {
         String senha = String.valueOf(jTextFieldSenha.getPassword());
 
         Aluno aluno = new Aluno(nome, email, senha);
-
-        BancoDeDadosAluno bdAluno = new BancoDeDadosAluno();
+        
         bdAluno.adicionarAluno(aluno);
-    }
-
-    private void navegarTelaAluno() {
-
     }
 
     private void cadastrarProfessor() {
@@ -215,11 +205,7 @@ public class JFCadastro extends javax.swing.JFrame {
 
         Professor professor = new Professor(nome, email, senha);
 
-        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
         bdProfessor.adicionarProfessor(professor);
-    }
-
-    private void navegarTelaProfessor() {
     }
 
     private void retornaUsuario() {

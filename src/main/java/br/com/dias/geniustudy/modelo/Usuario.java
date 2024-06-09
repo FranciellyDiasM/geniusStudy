@@ -1,10 +1,6 @@
 
 package br.com.dias.geniustudy.modelo;
 
-/**
- *
- * @author frand
- */
 public class Usuario {
     private String nome;
     private String email;
@@ -43,7 +39,4 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
-
 }

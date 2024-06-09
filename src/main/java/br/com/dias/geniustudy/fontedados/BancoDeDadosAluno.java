@@ -64,41 +64,6 @@ public class BancoDeDadosAluno {
         return alunos;
     }
 
-    public void atualizarAluno(String email, Aluno alunoAtualizado) {
-        try {
-            ArrayList<Aluno> alunos = getAlunos();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
-            for (Aluno aluno : alunos) {
-                if (aluno.getEmail().equals(email)) {
-                    writer.write(aluno.formatoBancoDeDados());
-                } else {
-                    writer.write(aluno.formatoBancoDeDados());
-                }
-                writer.newLine();
-            }
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void deletarAluno(String email) {
-        try {
-            ArrayList<Aluno> alunos = getAlunos();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
-            for (Aluno aluno : alunos) {
-                if (!aluno.getEmail().equals(email)) {
-                    writer.write(aluno.formatoBancoDeDados());
-                    writer.newLine();
-                }
-            }
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
     private Aluno stringToAluno(String linha) {
         String[] partes = linha.split("\\|");
         Aluno aluno = new Aluno(partes[0], partes[1], partes[2]);

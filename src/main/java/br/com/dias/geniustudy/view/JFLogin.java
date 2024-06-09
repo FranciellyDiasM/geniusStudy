@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.dias.geniustudy.view;
 
 import br.com.dias.geniustudy.fontedados.BancoDeDadosAluno;
@@ -10,13 +6,16 @@ import br.com.dias.geniustudy.modelo.Aluno;
 import br.com.dias.geniustudy.modelo.Professor;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author frand
- */
+
 public class JFLogin extends javax.swing.JFrame {
 
+    BancoDeDadosAluno bdAluno;
+    BancoDeDadosProfessor bdProfessor;
+    
     public JFLogin() {
+        bdAluno = new BancoDeDadosAluno();
+        bdProfessor = new BancoDeDadosProfessor();
+                
         initComponents();
     }
 
@@ -121,16 +120,12 @@ public class JFLogin extends javax.swing.JFrame {
             return;
         }
         
-        BancoDeDadosAluno bdAluno = new BancoDeDadosAluno();
-        
         Aluno aluno = bdAluno.pesquisar(email, senha);
         
         if(aluno != null) {
             navegaTelaAluno(aluno);
             return;
         }
-        
-        BancoDeDadosProfessor bdProfessor = new BancoDeDadosProfessor();
         
         Professor professor = bdProfessor.pesquisar(email, senha);
         

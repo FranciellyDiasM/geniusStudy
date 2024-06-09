@@ -85,23 +85,6 @@ public class BancoDeDadosProfessor {
         }
     }
 
-    public void deletarProfessor(String email) {
-        try {
-            ArrayList<Professor> professores = getProfessores();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
-            for (Professor professor : professores) {
-                if (!professor.getEmail().equals(email)) {
-                    writer.write(professor.formatoBancoDeDados());
-                    writer.newLine();
-                }
-            }
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
     private Professor stringToProfessor(String linha) {
         String[] partes = linha.split("\\|");
         Professor professor = new Professor(partes[0], partes[1], partes[2]);
