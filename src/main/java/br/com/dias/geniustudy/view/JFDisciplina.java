@@ -3,6 +3,8 @@ package br.com.dias.geniustudy.view;
 import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
 import br.com.dias.geniustudy.modelo.Curso;
 import br.com.dias.geniustudy.modelo.Professor;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 public class JFDisciplina extends javax.swing.JFrame {
@@ -15,9 +17,16 @@ public class JFDisciplina extends javax.swing.JFrame {
         bdProfessor = new BancoDeDadosProfessor();
                 
         initComponents();
-        setTitle("GeniuStudy   --   Cadastro de disciplinas");
+        setTitle("GeniuStudy   --   Cadastro de disciplinas");//Juan
         this.professor = professor;
         this.telaProfessor = telaProfessor;
+        
+        // Juan
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                telaProfessor.setJFDisciplinaNull();  // Define a referência na tela principal como null
+            }
+        });
     }
 
     /**

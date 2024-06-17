@@ -17,7 +17,7 @@ public class JFProfessor extends javax.swing.JFrame {
         this.professor = professor;
         
         initComponents();
-        setTitle("GeniuStudy   --   Área do Tutor/Professor");
+        setTitle("GeniuStudy   --   Área do Tutor/Professor");//Juan
         setupProfessor();
     }
 
@@ -123,6 +123,13 @@ public class JFProfessor extends javax.swing.JFrame {
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
         JFDisciplina jfDisciplina = new JFDisciplina(this, professor);
         jfDisciplina.setVisible(true);
+        //Juan:  Traz a janela para frente se ela já estiver aberta
+       if (jfDisciplina == null || !jfDisciplina.isVisible()) {
+            jfDisciplina = new JFDisciplina(this, professor);
+            jfDisciplina.setVisible(true);
+        } else {
+            jfDisciplina.toFront();  
+        }
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
@@ -166,4 +173,10 @@ public class JFProfessor extends javax.swing.JFrame {
         Object[] linha = new Object[]{curso.getNome(), curso.getHorario(), curso.getValor()};
         model.addRow(linha);
     }
+
+    void setJFDisciplinaNull() { // Juan
+       // this.jfDisciplina = null;
+    }
+    
+    
 }

@@ -19,7 +19,7 @@ public class JFCadastro extends javax.swing.JFrame {
         bdProfessor = new BancoDeDadosProfessor();
         
         initComponents();
-        setTitle("GeniuStudy   --  Cadastro inicial");
+        setTitle("GeniuStudy   --  Cadastro inicial");//Juan
         this.jFLoginOrigem = origem;
         
         // https://stackoverflow.com/questions/10468149/jframe-on-close-operation
@@ -183,7 +183,7 @@ public class JFCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jComboBoxTipoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoCadastroActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jComboBoxTipoCadastroActionPerformed
 
 

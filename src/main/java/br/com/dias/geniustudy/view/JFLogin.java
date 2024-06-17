@@ -18,7 +18,7 @@ public class JFLogin extends javax.swing.JFrame {
                 
         initComponents();
         
-        setTitle("GeniuStudy   --   Login");
+        setTitle("GeniuStudy   --   Login");//Juan
     }
 
     /**

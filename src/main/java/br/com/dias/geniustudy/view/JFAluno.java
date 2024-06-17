@@ -17,7 +17,7 @@ public class JFAluno extends javax.swing.JFrame {
         
         this.aluno = aluno;
         initComponents();
-        setTitle("GeniuStudy   --   Área do Aluno");
+        setTitle("GeniuStudy   --   Área do Aluno");// Juan
         setupAluno();
     }
 
