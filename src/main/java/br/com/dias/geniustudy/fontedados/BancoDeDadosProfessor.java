@@ -55,7 +55,7 @@ public class BancoDeDadosProfessor {
             BufferedReader reader = new BufferedReader(new FileReader(arquivo));
             String linha;
             while ((linha = reader.readLine()) != null) {
-                professores.add(stringToProfessor(linha));
+                professores.add(transformaLinhaEmProfessor(linha));
             }
             reader.close();
         } catch (IOException ex) {
@@ -85,7 +85,7 @@ public class BancoDeDadosProfessor {
         }
     }
 
-    private Professor stringToProfessor(String linha) {
+    private Professor transformaLinhaEmProfessor(String linha) {
         String[] partes = linha.split("\\|");
         Professor professor = new Professor(partes[0], partes[1], partes[2]);
         for (int i = 3; i < partes.length; i += 3) {

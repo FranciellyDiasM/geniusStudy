@@ -17,6 +17,8 @@ public class JFLogin extends javax.swing.JFrame {
         bdProfessor = new BancoDeDadosProfessor();
                 
         initComponents();
+        
+        setTitle("GeniuStudy   --   Login");
     }
 
     /**
@@ -43,7 +45,7 @@ public class JFLogin extends javax.swing.JFrame {
         jLabelTituloLogin.setText("Login");
 
         jLabelLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabelLogin.setText("Login");
+        jLabelLogin.setText("Email");
 
         jTextFieldLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -73,7 +75,7 @@ public class JFLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelTituloLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -82,7 +84,7 @@ public class JFLogin extends javax.swing.JFrame {
                     .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldSenha)
                     .addComponent(jButtonRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,9 +101,9 @@ public class JFLogin extends javax.swing.JFrame {
                 .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonEntrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButtonRegistrar)
-                .addGap(16, 16, 16))
+                .addGap(32, 32, 32))
         );
 
         jLabelLogin.getAccessibleContext().setAccessibleName("jLabelLogin");
@@ -112,28 +114,7 @@ public class JFLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        String email = jTextFieldLogin.getText();
-        String senha = String.valueOf(jTextFieldSenha.getPassword());
-        
-        if(email.isBlank() || senha.isBlank()) {
-            JOptionPane.showMessageDialog(this, "Você precisa preencher E-mail e Senha");
-            return;
-        }
-        
-        Aluno aluno = bdAluno.pesquisar(email, senha);
-        
-        if(aluno != null) {
-            navegaTelaAluno(aluno);
-            return;
-        }
-        
-        Professor professor = bdProfessor.pesquisar(email, senha);
-        
-        if(professor != null) {
-            navegaTelaProfessor(professor);
-        } else {
-            JOptionPane.showMessageDialog(this, "Dados inválidos!");
-        }
+        entrar();
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
@@ -176,12 +157,37 @@ public class JFLogin extends javax.swing.JFrame {
     private void navegaTelaProfessor(Professor professor) {
         JFProfessor jFProfessor = new JFProfessor(professor);
         jFProfessor.setVisible(true);
-        setVisible(false);
+        this.setVisible(false);
     }
 
     private void navegaTelaAluno(Aluno aluno) {
         JFAluno jFAluno = new JFAluno(aluno);
         jFAluno.setVisible(true);
-        setVisible(false);
+        this.setVisible(false);
+    }
+    
+    private void entrar() {
+        String email = jTextFieldLogin.getText();
+        String senha = String.valueOf(jTextFieldSenha.getPassword());
+        
+        if(email.isBlank() || senha.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Você precisa preencher E-mail e Senha");
+            return;
+        }
+        
+        Aluno aluno = bdAluno.pesquisar(email, senha);
+        
+        if(aluno != null) {
+            navegaTelaAluno(aluno);
+            return;
+        }
+        
+        Professor professor = bdProfessor.pesquisar(email, senha);
+        
+        if(professor != null) {
+            navegaTelaProfessor(professor);
+        } else {
+            JOptionPane.showMessageDialog(this, "Dados inválidos!");
+        }
     }
 }

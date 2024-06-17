@@ -19,6 +19,7 @@ public class JFCadastro extends javax.swing.JFrame {
         bdProfessor = new BancoDeDadosProfessor();
         
         initComponents();
+        setTitle("GeniuStudy   --  Cadastro inicial");
         this.jFLoginOrigem = origem;
         
         // https://stackoverflow.com/questions/10468149/jframe-on-close-operation
@@ -53,10 +54,15 @@ public class JFCadastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Você deseja ser");
+        jLabel1.setText("Você deseja ser:");
 
         jComboBoxTipoCadastro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBoxTipoCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aluno", "Professor" }));
+        jComboBoxTipoCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "            ", "Aluno", "Professor" }));
+        jComboBoxTipoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoCadastroActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro"));
 
@@ -126,15 +132,15 @@ public class JFCadastro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBoxTipoCadastro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
-                .addGap(62, 62, 62))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTipoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,10 +174,17 @@ public class JFCadastro extends javax.swing.JFrame {
             cadastrarAluno();
         } else if (tipoCadastroSelecionado.equals("Professor")) {
             cadastrarProfessor();
+        }else { // teste Juan
+            JOptionPane.showMessageDialog(this, "Prencha todos os campos!");
+            return;
         }
         
         retornaUsuario();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jComboBoxTipoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTipoCadastroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,7 +213,6 @@ public class JFCadastro extends javax.swing.JFrame {
     private void cadastrarProfessor() {
         String nome = jTextFieldNome.getText();
         String email = jTextFieldEmail.getText();
-        
         String senha = String.valueOf(jTextFieldSenha.getPassword());
 
         Professor professor = new Professor(nome, email, senha);

@@ -32,7 +32,7 @@ public class BancoDeDadosAluno {
             try {
                 arquivo.createNewFile();
             } catch (IOException ex) {
-                Logger.getLogger(BancoDeDadosAluno.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         }
     }
@@ -54,7 +54,7 @@ public class BancoDeDadosAluno {
             BufferedReader reader = new BufferedReader(new FileReader(arquivo));
             String linha;
             while ((linha = reader.readLine()) != null) {
-                alunos.add(stringToAluno(linha));
+                alunos.add(transformarLinhaEmAluno(linha));
             }
             reader.close();
         } catch (IOException ex) {
@@ -64,7 +64,7 @@ public class BancoDeDadosAluno {
         return alunos;
     }
 
-    private Aluno stringToAluno(String linha) {
+    private Aluno transformarLinhaEmAluno(String linha) {
         String[] partes = linha.split("\\|");
         Aluno aluno = new Aluno(partes[0], partes[1], partes[2]);
         

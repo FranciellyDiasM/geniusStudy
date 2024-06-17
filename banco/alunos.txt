@@ -1,1 +1,3 @@
-aluno|aluno@|123
+fran|fran@email.com|123
+lucas|lucas@testes.com|123
+fran|fran@|123
