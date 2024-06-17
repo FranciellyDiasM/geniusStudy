@@ -17,7 +17,7 @@ public class JFProfessor extends javax.swing.JFrame {
         this.professor = professor;
         
         initComponents();
-        setTitle("GeniuStudy   --   Área do Tutor/Professor");//Juan
+        setTitle("GeniuStudy -- Área do Tutor/Professor");//Juan
         setupProfessor();
     }
 
@@ -37,6 +37,7 @@ public class JFProfessor extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabelNomeTutor = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnVoltarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +80,13 @@ public class JFProfessor extends javax.swing.JFrame {
             }
         });
 
+        btnVoltarLogin.setText("Logoff");
+        btnVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarLoginActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +105,10 @@ public class JFProfessor extends javax.swing.JFrame {
                                 .addComponent(jButtonAdicionar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVoltarLogin)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -113,8 +124,10 @@ public class JFProfessor extends javax.swing.JFrame {
                     .addComponent(jButtonAdicionar)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVoltarLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,8 +159,15 @@ public class JFProfessor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLoginActionPerformed
+         JFLogin telaLogin = new JFLogin();
+        this.dispose();
+        telaLogin.setVisible(true);
+    }//GEN-LAST:event_btnVoltarLoginActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltarLogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonExcluir;

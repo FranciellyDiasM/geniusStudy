@@ -18,7 +18,7 @@ public class JFLogin extends javax.swing.JFrame {
                 
         initComponents();
         
-        setTitle("GeniuStudy   --   Login");//Juan
+        setTitle("GeniuStudy -- Login");//Juan
     }
 
     /**
@@ -157,13 +157,13 @@ public class JFLogin extends javax.swing.JFrame {
     private void navegaTelaProfessor(Professor professor) {
         JFProfessor jFProfessor = new JFProfessor(professor);
         jFProfessor.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }
 
     private void navegaTelaAluno(Aluno aluno) {
         JFAluno jFAluno = new JFAluno(aluno);
         jFAluno.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }
     
     private void entrar() {

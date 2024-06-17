@@ -17,7 +17,7 @@ public class JFAluno extends javax.swing.JFrame {
         
         this.aluno = aluno;
         initComponents();
-        setTitle("GeniuStudy   --   Área do Aluno");// Juan
+        setTitle("GeniuStudy -- Área do Aluno");// Juan
         setupAluno();
     }
 
@@ -37,6 +37,7 @@ public class JFAluno extends javax.swing.JFrame {
         jTextFieldBusca = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnVoltarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,13 @@ public class JFAluno extends javax.swing.JFrame {
 
         jLabel2.setText("Disciplina");
 
+        btnVoltarLogin.setText("Logoff");
+        btnVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarLoginActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,11 +96,13 @@ public class JFAluno extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(431, 605, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonBuscar))
                     .addComponent(jLabelNomeAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldBusca))
+                    .addComponent(jTextFieldBusca)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnVoltarLogin, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -109,7 +119,9 @@ public class JFAluno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(btnVoltarLogin)
                 .addContainerGap())
         );
 
@@ -131,8 +143,15 @@ public class JFAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
+    private void btnVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLoginActionPerformed
+        JFLogin btnVoltar = new JFLogin();
+        this.dispose();
+        btnVoltar.setVisible(true);
+    }//GEN-LAST:event_btnVoltarLoginActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltarLogin;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
