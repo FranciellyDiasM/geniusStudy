@@ -180,6 +180,7 @@ public class JFAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+       jTextFieldBuscarProfessor.setText("");
         String valorBusca = jTextFieldBusca.getText();
 
         DefaultTableModel model = (DefaultTableModel) jTableDisciplinas.getModel();
@@ -205,12 +206,14 @@ public class JFAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscaActionPerformed
 
     private void btnBuscarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProfessorActionPerformed
+        jTextFieldBusca.setText("");
         String valorBusca = jTextFieldBuscarProfessor.getText();
+        
 
         DefaultTableModel model = (DefaultTableModel) jTableDisciplinas.getModel();
         model.setRowCount(0);
 
-        ArrayList<Professor> professores = bdProfessor.buscarCursos(valorBusca);
+        ArrayList<Professor> professores = bdProfessor.buscarProfessores(valorBusca);
 
         for (Professor professor : professores) {
             for (Curso curso : professor.getCursos()) {

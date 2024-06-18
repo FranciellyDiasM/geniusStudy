@@ -131,8 +131,23 @@ public class BancoDeDadosProfessor {
 
         return professores;
     }
+    
+    public ArrayList<Professor> buscarProfessores(String valorBusca){
+        ArrayList<Professor> listaProfessores = getProfessores();
+        
+        for(int i = listaProfessores.size()- 1; i >= 0 ; i--){
+            Professor item = listaProfessores.get(i);
+            
+            if(!containsIgnoreCase(item.getNome(), valorBusca)){
+                listaProfessores.remove(i);
+                
+            }
+        }
+        
+        return listaProfessores;
+    }
 
-    public static boolean containsIgnoreCase(String str, String busca) {
+    public boolean containsIgnoreCase(String str, String busca) {
         if (str == null || busca == null) {
             return false;
         }
