@@ -11,3 +11,4 @@ fran2|fran@|1234|dum dum|100.0|18:30
 francielly|fran@|123
 jose|jose@|123|Portugues|100.0|10:00|Dancinha Tiktok|400.0|19:30|volltar|20.0|08:00
 frant|fran@|123
+Fran|Fran@email|1234|botao logoff|20.0|08:00

@@ -2,3 +2,4 @@ fran|fran@email.com|123
 lucas|lucas@testes.com|123
 fraaaa|fr|123
 josea|jose@|123
+frandias|fran@dias|1234
