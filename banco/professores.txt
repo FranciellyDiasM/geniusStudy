@@ -1,13 +1,8 @@
-fran|fran@email.com|123|Java|100.0|08:00|Python|150.0|08:30|Matematica|200.0|09:00
-jose|jose@|123|Portugues|100.0|10:00|Dancinha Tiktok|400.0|19:30|volltar|20.0|08:00
-joao|joao@|123|Culinaria|50.0|11:00|Sushi|200.0|20:00
-tutor|tutor@|123|Banco de Dados|150.0|9:00|BI|200.0|10:00
-professor|professor@|123|LPOO|100.0|08:00|LP1|150.0|08:30|LP2|300.0|09:30
-fran|dd|123|javascript|25.3|10:00
-lucas|lucas@teste.com|123
-a|a|a|a6|3.0|08:00|a|2.0|08:00|a|2.0|08:00
-fran2|fran@|1234|dum dum|100.0|18:30
-fran2|fran@|1234|dum dum|100.0|18:30
-francielly|fran@|123
-frant|fran@|123
-Fran|Fran@email|1234|botao logoff|20.0|08:00
+ALANA RODRIGUES ROCHA|alana.rocha@LPOOtutorFaesa.com.br|662255alana|Matematica|80.0|14:00|Fisica|85.0|10:00|Engenharia de Requisitos|100.0|09:00
+ANA KESIA SANTOS|ana.santos@LPOOtutorFaesa.com.br|ana123|Ingles|75.0|09:00
+FRANCIELLY DIAS MACEDO|francielly.macedo@LPOOtutorFaesa.com.br|fran2808|Historia|80.0|10:00|Geografia|70.0|14:00|Historia|80.0|15:00
+JUAN TAVARES MARCOLINO LIRIO|juan.lirio@LPOOtutorFaesa.com.br|tavares78|Biologia|80.0|14:00|Quimica|85.0|10:00|Analise OO|90.0|09:00
+LUCAS LIMA FERRARI|lucas.ferrari@LPOOtutorFaesa.com.br|ferrari19|Fisica|85.0|13:00|Matematica|80.0|09:00|Engenharia de Sothware|95.0|12:00
+PATRICK COSTA ROSA TORREZANI|patrick.torrezani@LPOOtutorFaesa.com.br|patrick234|Ingles|75.0|10:00|Portugues|70.0|14:00|Sistemas Operacionais|100.0|08:00
+YURI SMARSARO AMORIM|yuri.amorim@LPOOtutorFaesa.com.br|smarsaroyuri1|Geografia|70.0|09:00|Historia|80.0|13:00|Portugues|85.0|15:00
+NICHOLE DA SILVA NICOLINI|nchnicolini@gmail.com|nichole123|Filosofia|100.0|17:00|Eletromagnetismo|80.0|08:00|Fisica quântica|110.0|19:00

@@ -4,18 +4,18 @@ import br.com.dias.geniustudy.fontedados.BancoDeDadosProfessor;
 import br.com.dias.geniustudy.modelo.Curso;
 import br.com.dias.geniustudy.modelo.Professor;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class JFProfessor extends javax.swing.JFrame {
 
-    
     BancoDeDadosProfessor bdProfessor;
     private Professor professor;
-    
+
     public JFProfessor(Professor professor) {
         bdProfessor = new BancoDeDadosProfessor();
         this.professor = professor;
-        
+
         initComponents();
         setTitle("GeniuStudy -- Área do Tutor/Professor");//Juan
         setupProfessor();
@@ -49,7 +49,15 @@ public class JFProfessor extends javax.swing.JFrame {
             new String [] {
                 "Disciplina", "Horário", "Valor da hora"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTableDisciplinas);
 
         jButtonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -68,7 +76,7 @@ public class JFProfessor extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Bem vindo,");
 
         jLabelNomeTutor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -143,26 +151,36 @@ public class JFProfessor extends javax.swing.JFrame {
         JFDisciplina jfDisciplina = new JFDisciplina(this, professor);
         jfDisciplina.setVisible(true);
         //Juan:  Traz a janela para frente se ela já estiver aberta
-       if (jfDisciplina == null || !jfDisciplina.isVisible()) {
+        if (jfDisciplina == null || !jfDisciplina.isVisible()) {
             jfDisciplina = new JFDisciplina(this, professor);
             jfDisciplina.setVisible(true);
         } else {
-            jfDisciplina.toFront();  
+            jfDisciplina.toFront();
         }
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        int linha = jTableDisciplinas.getSelectedRow();
-        
+        int[] linhasSelecionadas = jTableDisciplinas.getSelectedRows();
         DefaultTableModel model = (DefaultTableModel) jTableDisciplinas.getModel();
-        model.removeRow(linha);
-        professor.getCursos().remove(linha);
-        
+        int ultimaPosicao = linhasSelecionadas.length - 1;
+
+        if (linhasSelecionadas.length == 0) {
+            JOptionPane.showMessageDialog(this, "Selecione pelo menos uma disciplina");
+            return;
+        }
+
+        for (int i = ultimaPosicao; i >= 0; i--) {
+            int linha = linhasSelecionadas[i];
+            model.removeRow(linha);
+            professor.getCursos().remove(linha);
+        }
+
         bdProfessor.atualizarProfessor(professor);
+
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void btnVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLoginActionPerformed
-         JFLogin telaLogin = new JFLogin();
+        JFLogin telaLogin = new JFLogin();
         this.dispose();
         telaLogin.setVisible(true);
     }//GEN-LAST:event_btnVoltarLoginActionPerformed
@@ -181,10 +199,10 @@ public class JFProfessor extends javax.swing.JFrame {
 
     private void setupProfessor() {
         jLabelNomeTutor.setText(professor.getNome());
-        
+
         ArrayList<Curso> cursos = professor.getCursos();
-        
-        for(Curso curso: cursos) {
+
+        for (Curso curso : cursos) {
             exibirCurso(curso);
         }
     }
@@ -197,8 +215,7 @@ public class JFProfessor extends javax.swing.JFrame {
     }
 
     void setJFDisciplinaNull() { // Juan
-       // this.jfDisciplina = null;
+        // this.jfDisciplina = null;
     }
-    
-    
+
 }
