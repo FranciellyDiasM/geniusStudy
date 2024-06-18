@@ -1,8 +1,8 @@
-ALANA RODRIGUES ROCHA|alana.rocha@LPOOtutorFaesa.com.br|662255alana|Matematica|80.0|14:00|Fisica|85.0|10:00|Engenharia de Requisitos|100.0|09:00
-ANA KESIA SANTOS|ana.santos@LPOOtutorFaesa.com.br|ana123|Ingles|75.0|09:00
-FRANCIELLY DIAS MACEDO|francielly.macedo@LPOOtutorFaesa.com.br|fran2808|Historia|80.0|10:00|Geografia|70.0|14:00|Historia|80.0|15:00
-JUAN TAVARES MARCOLINO LIRIO|juan.lirio@LPOOtutorFaesa.com.br|tavares78|Biologia|80.0|14:00|Quimica|85.0|10:00|Analise OO|90.0|09:00
-LUCAS LIMA FERRARI|lucas.ferrari@LPOOtutorFaesa.com.br|ferrari19|Fisica|85.0|13:00|Matematica|80.0|09:00|Engenharia de Sothware|95.0|12:00
-PATRICK COSTA ROSA TORREZANI|patrick.torrezani@LPOOtutorFaesa.com.br|patrick234|Ingles|75.0|10:00|Portugues|70.0|14:00|Sistemas Operacionais|100.0|08:00
-YURI SMARSARO AMORIM|yuri.amorim@LPOOtutorFaesa.com.br|smarsaroyuri1|Geografia|70.0|09:00|Historia|80.0|13:00|Portugues|85.0|15:00
-NICHOLE DA SILVA NICOLINI|nchnicolini@gmail.com|nichole123|Filosofia|100.0|17:00|Eletromagnetismo|80.0|08:00|Fisica quântica|110.0|19:00
+ALANA RODRIGUES ROCHA|alana.rocha@LPOOtutorFaesa.com.br|alana123|Matematica|80.0|14:00|Fisica|85.0|10:00|Engenharia de Requisitos|100.0|09:00|Criacao de Jogos|390.0|10:30|Interface Grafica|145.0|18:30
+ANA KESIA SANTOS|ana.santos@LPOOtutorFaesa.com.br|ana123|Ingles|75.0|09:00|Design|120.0|17:30|Inteligencia Artifial|130.0|18:30|Prototipacao|355.0|11:00|Java/Kotlin|420.0|14:00
+FRANCIELLY DIAS MACEDO|francielly.macedo@LPOOtutorFaesa.com.br|fran123|Historia|80.0|10:00|Geografia|70.0|14:00|Historia|80.0|15:00|Desenvolvedor Android|649.0|20:00|Micangas Personalizadas|260.0|08:30
+JUAN TAVARES MARCOLINO LIRIO|juan.lirio@LPOOtutorFaesa.com.br|juan123|Biologia|80.0|14:00|Quimica|85.0|10:00|Analise OO|90.0|09:00|Seguranca Cibernetica|590.0|15:00|Implementacao de Codigos|155.0|17:00
+LUCAS LIMA FERRARI|lucas.ferrari@LPOOtutorFaesa.com.br|lucas123|Fisica|85.0|13:00|Matematica|80.0|09:00|Engenharia de Software|95.0|12:00|Forro/Samba|430.0|19:00|QA-Resolucao de conflitos|260.0|15:30
+PATRICK COSTA ROSA TORREZANI|patrick.torrezani@LPOOtutorFaesa.com.br|patrick123|Ingles|75.0|10:00|Portugues|70.0|14:00|Sistemas Operacionais|100.0|08:00|Palestrante Couch|210.0|19:30|Criar Manual de Usuario|45.0|16:30
+YURI SMARSARO AMORIM|yuri.amorim@LPOOtutorFaesa.com.br|yuri123|Geografia|70.0|09:00|Historia|80.0|13:00|Portugues|85.0|15:00|Influencer Body Builder|290.0|12:30|Cadastro de Professores|80.0|19:00
+NICHOLE DA SILVA NICOLINI|nchnicolini@gmail.com|nichole123|Filosofia|100.0|17:00|Eletromagnetismo|80.0|08:00|Fisica Quantica|110.0|19:00|Dancinha do Tik Tok|350.0|15:30|Requisitos Funcionais|60.0|11:00

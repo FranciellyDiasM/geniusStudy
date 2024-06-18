@@ -82,4 +82,14 @@ public class BancoDeDadosAluno {
        
        return null;
     }
+    
+    public void limparArquivo() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
+            writer.write("");
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

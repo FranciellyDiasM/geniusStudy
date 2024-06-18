@@ -154,4 +154,14 @@ public class BancoDeDadosProfessor {
 
         return str.toLowerCase().contains(busca.toLowerCase());
     }
+    
+    public void limparArquivo() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
+            writer.write("");
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(BancoDeDadosProfessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

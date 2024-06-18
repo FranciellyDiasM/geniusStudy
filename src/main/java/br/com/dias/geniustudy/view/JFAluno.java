@@ -30,6 +30,19 @@ public class JFAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialogAluno = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jTxtContato = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTxtNome = new javax.swing.JTextField();
+        jTxtDisciplina = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTxtValor = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTxtHorario = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabelNomeAluno = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -42,6 +55,122 @@ public class JFAluno extends javax.swing.JFrame {
         jTextFieldBuscarProfessor = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnExibir = new javax.swing.JButton();
+
+        jDialogAluno.setTitle("Informações do Professor");
+        jDialogAluno.setBounds(new java.awt.Rectangle(500, 190, 390, 490));
+        jDialogAluno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jDialogAluno.setModal(true);
+        jDialogAluno.setType(java.awt.Window.Type.POPUP);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações do Professor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Contato");
+
+        jTxtContato.setEditable(false);
+        jTxtContato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Nome");
+
+        jTxtNome.setEditable(false);
+        jTxtNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTxtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtNomeActionPerformed(evt);
+            }
+        });
+
+        jTxtDisciplina.setEditable(false);
+        jTxtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Disciplina");
+
+        jTxtValor.setEditable(false);
+        jTxtValor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Valor da hora/aula");
+
+        jTxtHorario.setEditable(false);
+        jTxtHorario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Horário");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTxtHorario, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                        .addComponent(jTxtValor)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtContato, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                    .addComponent(jTxtDisciplina)
+                    .addComponent(jTxtNome))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        jLabel6.setFont(new java.awt.Font("Segoe Script", 3, 24)); // NOI18N
+        jLabel6.setText("GeniuStudy");
+
+        javax.swing.GroupLayout jDialogAlunoLayout = new javax.swing.GroupLayout(jDialogAluno.getContentPane());
+        jDialogAluno.getContentPane().setLayout(jDialogAlunoLayout);
+        jDialogAlunoLayout.setHorizontalGroup(
+            jDialogAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogAlunoLayout.createSequentialGroup()
+                .addContainerGap(91, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
+            .addGroup(jDialogAlunoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jDialogAlunoLayout.setVerticalGroup(
+            jDialogAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogAlunoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +195,11 @@ public class JFAluno extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTableDisciplinas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDisciplinasMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTableDisciplinas);
@@ -110,6 +244,14 @@ public class JFAluno extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe Script", 3, 24)); // NOI18N
         jLabel4.setText("GeniuStudy");
 
+        btnExibir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExibir.setText("Exibir informações");
+        btnExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExibirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,6 +282,8 @@ public class JFAluno extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExibir)
+                .addGap(18, 18, 18)
                 .addComponent(btnVoltarLogin)
                 .addContainerGap())
         );
@@ -170,9 +314,11 @@ public class JFAluno extends javax.swing.JFrame {
                     .addComponent(btnBuscarProfessor))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVoltarLogin)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExibir)
+                    .addComponent(btnVoltarLogin))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -202,7 +348,6 @@ public class JFAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarLoginActionPerformed
 
     private void jTextFieldBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBuscaActionPerformed
 
     private void btnBuscarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProfessorActionPerformed
@@ -222,20 +367,48 @@ public class JFAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarProfessorActionPerformed
 
+    private void jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeActionPerformed
+    }//GEN-LAST:event_jTxtNomeActionPerformed
+
+    private void jTableDisciplinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDisciplinasMouseClicked
+       // jDialogAluno.setVisible(true);
+       // CarregarCampos();
+    }//GEN-LAST:event_jTableDisciplinasMouseClicked
+
+    private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
+        carregarCampos();
+        jDialogAluno.setVisible(true);
+       
+    }//GEN-LAST:event_btnExibirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarProfessor;
+    private javax.swing.JButton btnExibir;
     private javax.swing.JButton btnVoltarLogin;
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JDialog jDialogAluno;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelNomeAluno;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDisciplinas;
     private javax.swing.JTextField jTextFieldBusca;
     private javax.swing.JTextField jTextFieldBuscarProfessor;
+    private javax.swing.JTextField jTxtContato;
+    private javax.swing.JTextField jTxtDisciplina;
+    private javax.swing.JTextField jTxtHorario;
+    private javax.swing.JTextField jTxtNome;
+    private javax.swing.JTextField jTxtValor;
     // End of variables declaration//GEN-END:variables
 
     private void setupAluno() {
@@ -263,4 +436,16 @@ public class JFAluno extends javax.swing.JFrame {
         Object[] linha = new Object[]{coluna1, coluna2, coluna3, coluna4, coluna5};
         model.addRow(linha);
     }
+    
+    private void carregarCampos(){
+        int setar = jTableDisciplinas.getSelectedRow();
+        jTxtNome.setText(jTableDisciplinas.getModel().getValueAt(setar, 3).toString());
+        jTxtDisciplina.setText(jTableDisciplinas.getModel().getValueAt(setar, 0).toString());
+        jTxtValor.setText(jTableDisciplinas.getModel().getValueAt(setar, 2).toString());
+        jTxtHorario.setText(jTableDisciplinas.getModel().getValueAt(setar, 1).toString());
+        jTxtContato.setText(jTableDisciplinas.getModel().getValueAt(setar, 4).toString());
+
+       
+    }
+       
 }

@@ -14,6 +14,11 @@ public class Professor extends Usuario {
         super(nome, email, senha);
         cursos = new ArrayList<>();
     }
+    
+    public Professor(String nome, String email, String senha, ArrayList<Curso> cursos) {
+        super(nome, email, senha);
+        this.cursos = cursos;
+    }
 
     public ArrayList<Curso> getCursos() {
         return cursos;
